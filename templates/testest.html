@@ -1,0 +1,32 @@
+      
+     function index_check() {
+        $.ajax({
+        type : "GET",
+        url : "/database",
+        data : {},
+        
+     success: function(response){
+        data = response
+
+        for(let i = 0 ; i < response.length; i++) { //i++은  i = i +1
+ 
+          let row = data[i]
+          let type = row['type']
+          let value = row['value']
+          let date = row['date']
+          console.log(row)
+          let test =
+                   '<tr>\
+                    <td>'+date+'</td> \
+                    <td>'+type+'</td> \
+                    <td>'+value+'</td> \
+
+                    </tr>' 
+          
+              $('#week_1').append(test);
+            
+              }
+            }
+          })
+        }
+        

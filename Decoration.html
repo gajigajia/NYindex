@@ -1,0 +1,121 @@
+<html>
+<title> 스파르타코딩클럽 </title>
+<head>
+
+  <!--폰트와 Jquery-->
+  <link href="https://fonts.googleapis.com/css?family=Poor+Story&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script>
+
+  <style type="text/css">
+
+      *{
+       font-family: 'Poor Story', cursive;
+      }
+
+      body {
+        background-color : #ffdbeb;
+      }
+
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        font-size : 14px;
+      }
+
+      td, th {
+        border: 1px solid #FFFFFF;
+        text-align: left;
+        padding: 8px;
+      }
+
+      tr:nth-child(even) {
+        background-color: #ff73b1;
+      }
+
+      h1 {
+        border-radius: 13px;
+        background: #ff73b1;
+        box-shadow:  5px 5px 0px #873d5e,
+             -5px -5px 0px #ffa9ff;
+        width : 330px;
+        text-align : center;
+      }
+
+  </style>
+
+  <script type="text/javascript">
+
+    function check() {
+      $('#weekday').html('')
+
+      let input_date = $('#start_date').val() ;
+      let today = new Date();
+      let dd = today.getDate();
+      let mm = today.getMonth();
+      let yyyy = today.getFullYear();
+      today = dd+'/'+mm+'/'+yyyy;
+      return today;
+      let table_head = '<tr>\
+            <th>'+"지수확인"+'</th>\
+            <th>'+input_date+'</th>\
+            <th>'+input_date+'</th>\
+            <th>'+input_date+'</th>\
+            <th>'+today+'</th>\
+            <th>'+today+'</th>\
+            </tr>';
+
+
+//function today(i)
+  //  {
+    //    var today = new Date();
+    //    var dd = today.getDate()+1;
+    //    var mm = today.getMonth()+1;
+    //    var yyyy = today.getFullYear();
+
+       // today = dd+'/'+mm+'/'+yyyy;
+
+        //return today;
+    //}
+
+        $('#weekday').append(table_head);
+        }
+
+  </script>
+
+</head>
+
+
+<body>
+  <h1> 금융지수종가 크롤링 </h1>
+
+  <p> 보고싶은 날짜를 선택하세요 →
+  <input id ="start_date" type="date" value="2020-02-01" min="2020-01-01" max="2020-02-16">부터 5영업일
+  <button onclick="check()" type="button" class="btn btn-primary">지수확인</button> </p>
+  <span style = "font-size:10px">그러니까 월요일을 선택하는 것이 좋을 겁니다.</span> <p>
+    <table>
+    <thead id = "weekday">
+          <!--나중에는 여기에 input 받은 값 넣어야해 -->
+      <th>지수확인</th>
+      <th>보고싶은</th>
+      <th>주간을</th>
+      <th>선택하세요</th>
+      <th>랄랄라</th>
+      <th>랄랄라</th>
+    </thead>
+
+
+    <tr>
+      <td>S&P500</td>
+    </tr>
+    <tr>
+      <td>다우존스</td>
+    </tr>
+    <tr>
+      <td>나스닥</td>
+    </tr>
+
+  </table>
+</body>
+
+
+</html>

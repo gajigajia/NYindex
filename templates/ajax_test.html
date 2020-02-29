@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+  <meta charset="UTF-8">
+    <title>JQuery 연습하고 가기!</title>
+
+    <!-- JQuery를 import 합니다 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+    <style type="text/css">
+      div.question-box {
+        margin: 10px 0 20px 0;
+      }
+    </style>
+
+    <script>
+      function q1() {
+       $.ajax({
+            type : "GET",
+            url : "http://127.0.0.1:5000/database",
+            data : {},
+          
+          success: function(response){
+            let rows = response["DOWJONES"];
+            
+            for(let i = 0 ; i < rows.length; i++) { //i++은  i = i +1
+
+              let Ddate = rows[i]['date'];
+              let Dvalue = rows[i]['value'];
+              let Dtable = '<p>' +Ddate+ ' ' +Dvalue+ '</p>'
+
+              $('#names-q1').append(Dtable);
+              }
+            }
+          })
+        }
+
+      
+    </script>
+
+  </head>
+  <body>
+   
+    <div class="question-box">
+      <h2>데이터를 어떻게 끌어오나 보자!</h2>
+
+      <p>숭구리당당숭당당</p>
+      <button onclick="q1()">업데이트</button>
+      <ul id="names-q1">
+       
+      </ul>
+    </div>
+  </body>
+</html>
